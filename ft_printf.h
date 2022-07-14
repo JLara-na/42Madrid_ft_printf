@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
+/*   Updated: 2022/07/14 20:50:51 by jlara-na         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -26,7 +38,7 @@ typedef struct s_status
 	int		stop;
 	va_list	*args;
 
-}	t_status
+}	t_status;
 
 int			ft_printf(char const *, ...);
 t_status	format_c(t_status status);

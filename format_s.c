@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_c.c                                         :+:      :+:    :+:   */
+/*   format_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 19:32:42 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/14 20:50:54 by jlara-na         ###   ########.fr       */
+/*   Created: 2022/07/14 17:33:38 by jlara-na          #+#    #+#             */
+/*   Updated: 2022/07/14 20:50:57 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_print.h"
 
-t_status	format_c(t_status status)
+t_status	format_s(t_status status)
 {
-	char	arg;
-	int		dif;
-
-	arg = va_arg(*status.args, int);
-	dif = 0;
-	while (dif + 1 < status.min && !status.minus)
-	{
-		write(1, " ", 1);
-		status.len++;
-		dif++;
-	}
-	write(1, &arg, 1);
-	status.len++;
-	while (dif + 1 < status.min && status.minus)
-	{
-		write(1, " ", 1);
-		status.len++;
-		dif++;
-	}
-	return (brain);
+	
 }
