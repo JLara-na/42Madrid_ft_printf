@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_c.c                                         :+:      :+:    :+:   */
+/*   ft_aux.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/12 19:32:42 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/15 21:44:36 by jlara-na         ###   ########.fr       */
+/*   Created: 2022/07/15 16:56:48 by jlara-na          #+#    #+#             */
+/*   Updated: 2022/07/15 21:44:23 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_status	format_c(t_status status)
+void ft_space(int i)
 {
-	char	arg;
-	int		dif;
+	while (i > 0)
+	{
+		write(1, " ", 1);
+		i--;
+	}
+}
 
-	arg = va_arg(*status.args, int);
-	dif = 0;
-	while (dif + 1 < status.min && !status.minus)
+t_status	space_or_zero(t_status status)
+{
+	if (status.format == 'c' || status.format == 's' || status.format == 'p')
+		write (1, " ", 1);
+	else 
 	{
-		write(1, " ", 1);
-		status.len++;
-		dif++;
+		if (status.zero && !status.dot && !status.minus)
+			write(1, "0", 1);
+		else
+			write (1, " ", 1);
+
 	}
-	write(1, &arg, 1);
 	status.len++;
-	while (dif + 1 < status.min && status.minus)
-	{
-		write(1, " ", 1);
-		status.len++;
-		dif++;
-	}
-	return (brain);
+	return (status);
 }

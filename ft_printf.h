@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/14 20:50:51 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/15 21:44:11 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ typedef struct s_status
 }	t_status;
 
 int			ft_printf(char const *, ...);
+
+
+//Format functions that will print the argumet values based on the status info.
+
 t_status	format_c(t_status status);
 t_status	format_s(t_status status);
 t_status	format_p(t_status status);
@@ -48,6 +52,10 @@ t_status	format_int(t_status status);
 t_status	format_u(t_status status);
 t_status	format_x(t_status status);
 t_status	format_percent(t_status status);
+
+//This function will check over the flags and format flag, updating the status
+//and calling the format functions.
+
 t_status	param_detector(t_status status);
 
 #endif
