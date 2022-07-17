@@ -6,11 +6,27 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:56:48 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/15 21:44:23 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:23:15 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+t_status	status_reset(t_status status)
+{
+	status.format = 'w';
+	status.hash = 0;
+	status.zero = 0;
+	status.minus = 0;
+	status.space = 0;
+	status.plus = 0;
+	status.dot = 0;
+	status.min = 0;
+	status.max = 0;
+	status.minz = 0;
+	status.maxz = 0;
+	return (status);
+}
 
 void ft_space(int i)
 {

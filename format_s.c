@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:33:38 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/14 20:50:57 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/17 18:40:46 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 t_status	format_s(t_status status)
 {
-	
+	char *arg;
+
+	arg = va_arg(*status.args, char *)
+
 }

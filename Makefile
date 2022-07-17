@@ -1,5 +1,5 @@
-NAME =				libftprint.a
-C_FILES =
+NAME =				libftprintf.a
+C_FILES = 			format_c.c ft_aux.c ft_printf.c libft.c libftdos.c parameters.c prueba.c
 C_FILES_BONUS =
 O_FILES =			$(C_FILES:.c=.o)
 O_FILES_BONUS =		$(C_FILES_BONUS:.c=.o)
@@ -17,10 +17,10 @@ bonus:		$(O_FILES) $(O_FILES_BONUS)
 	ranlib $(NAME)
 
 clean:
-	@$(RM) $(O_FILES) $(O_FILES_BONUS)
+	$(RM) $(O_FILES) $(O_FILES_BONUS)
 
 fclean:		clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re:			fclean all
 
