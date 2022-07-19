@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:56:48 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/17 17:23:15 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/19 21:19:29 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void ft_space(int i)
 t_status	space_or_zero(t_status status)
 {
 	if (status.format == 'c' || status.format == 's' || status.format == 'p')
+	{
 		write (1, " ", 1);
+	}
 	else 
 	{
 		if (status.zero && !status.dot && !status.minus)

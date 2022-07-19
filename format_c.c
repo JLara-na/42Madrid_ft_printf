@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:32:42 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/17 18:51:33 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/19 17:51:48 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 t_status	format_c(t_status status)
 {
 	char	arg;
-	int		dif;
+	int		i;
 
 	arg = va_arg(*status.args, int);
-	dif = 0;
-	while (dif + 1 < status.min && !status.minus)
+	i = 0;
+	while (i + 1 < status.min && !status.minus)
 	{
 		write(1, " ", 1);
 		status.len++;
-		dif++;
+		i++;
 	}
 	write(1, &arg, 1);
 	status.len++;
-	while (dif + 1 < status.min && status.minus)
+	while (i + 1 < status.min && status.minus)
 	{
 		write(1, " ", 1);
 		status.len++;
-		dif++;
+		i++;
 	}
 	return (status);
 }

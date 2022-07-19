@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/17 18:53:03 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/19 20:33:58 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 typedef struct s_status
 {
-	char	*string;
+	char	*string; //Donde se almacena la string argumento
 	va_list	*args;
 	int		position;
 	int		len;
@@ -71,8 +71,10 @@ void		ft_space(int i);
 
 //LIBFT functions
 
-char	*ft_strdup(const char *s1);
-int	ft_isdigit(int j);
-int	ft_isalpha(int j);
-
+char		*ft_strdup(const char *s1);
+int			ft_isdigit(int j);
+int			ft_isalpha(int j);
+size_t		ft_strlen(const char *j);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+void		*ft_calloc(size_t count, size_t size);
 #endif

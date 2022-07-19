@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:58:40 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/17 17:27:52 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/19 20:31:27 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static t_status	format_detector(t_status status)
 {
 	if (status.format == 'c')
 			status = format_c(status);
-	//if (status.format == 's')
-	//		status = format_s(status);
+	if (status.format == 's')
+			status = format_s(status);
 	/*
 	if (status.format == 'p')
 			status = format_p(status);
