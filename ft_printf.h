@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/19 20:33:58 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/22 00:39:06 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdarg.h>
+# include <limits.h>
 
 //This structure will be modified by each function pasing down the instruction
 //to perform diferent tasks.
 
 typedef struct s_status
 {
-	char	*string; //Donde se almacena la string argumento
+	char	*string;
 	va_list	*args;
 	int		position;
 	int		len;
@@ -61,12 +62,13 @@ t_status	format_percent(t_status status);
 //and calling the format functions.
 
 t_status	param_detector(t_status status);
-t_status	ft_writestr(t_status status);
 
 //This are some auxiliar functions that will be used inside some functions.
 
+t_status	ft_writestr(t_status status);
 t_status	status_reset(t_status status);
 t_status	space_or_zero(t_status status);
+char		*zero_at_front(char *str);
 void		ft_space(int i);
 
 //LIBFT functions
@@ -74,7 +76,10 @@ void		ft_space(int i);
 char		*ft_strdup(const char *s1);
 int			ft_isdigit(int j);
 int			ft_isalpha(int j);
-size_t		ft_strlen(const char *j);
+int			ft_strlen(const char *j);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_calloc(size_t count, size_t size);
+void		ft_putchar(char c);
+void		ft_putnbr(int n);
+char		*ft_itoa(long long int n);
 #endif

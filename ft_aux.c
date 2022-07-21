@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:56:48 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/19 21:19:29 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/21 23:03:48 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,24 @@ t_status	space_or_zero(t_status status)
 	}
 	status.len++;
 	return (status);
+}
+
+char	*zero_at_front(char *str)
+{
+	char	*newstr;
+	int		a;
+	int		b;
+
+	newstr = malloc(ft_strlen(str) + 2);
+	b = ft_strlen(str);
+	a = 0;
+	newstr[0] = '0';
+	while (a < b)
+	{
+		newstr[a + 1] = str[a];
+		a++;
+	}
+	newstr[a + 1] = 0;
+	free(str);
+	return (newstr);
 }

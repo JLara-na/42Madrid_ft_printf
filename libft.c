@@ -6,13 +6,13 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:50:10 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/19 20:43:42 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/22 00:00:28 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
- size_t	ft_strlen(const char *j)
+int	ft_strlen(const char *j)
 {
 	size_t	i;
 
