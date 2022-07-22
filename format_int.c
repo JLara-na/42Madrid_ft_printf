@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 18:31:00 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 00:38:56 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:58:22 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ t_status	int_str_print(t_status status, char *str)
 	free(str);
 	return (status);
 }
+
 t_status	format_int(t_status status)
 {
 	long long int	nb;
 	long long int	unsignednb;
-	char	*str;
+	char			*str;
 
 	nb = (long long int)va_arg(*status.args, int);
 	unsignednb = nb;

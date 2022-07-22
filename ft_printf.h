@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 00:39:06 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:51:24 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@
 # include <stddef.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <string.h>
 
 //This structure will be modified by each function pasing down the instruction
 //to perform diferent tasks.
 
 typedef struct s_status
 {
-	char	*string;
+	char	*str;
 	va_list	*args;
-	int		position;
+	int		pos;
 	int		len;
 	int		hash;
 	int		zero;
@@ -63,6 +64,11 @@ t_status	format_percent(t_status status);
 
 t_status	param_detector(t_status status);
 
+//INT functions
+
+t_status	print_only_num(t_status status, char *str);
+t_status	int_str_print(t_status status, char *str);
+
 //This are some auxiliar functions that will be used inside some functions.
 
 t_status	ft_writestr(t_status status);
@@ -82,4 +88,6 @@ void		*ft_calloc(size_t count, size_t size);
 void		ft_putchar(char c);
 void		ft_putnbr(int n);
 char		*ft_itoa(long long int n);
+
+t_status	min_max_detector(t_status status);
 #endif

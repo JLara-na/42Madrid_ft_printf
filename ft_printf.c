@@ -6,35 +6,34 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 16:02:44 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 00:05:58 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:55:47 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_status ft_writestr(t_status status)
+t_status	ft_writestr(t_status status)
 {
-	while (status.string[status.position] 
-			&& status.string[status.position] != '%')
+	while (status.str[status.pos] && status.str[status.pos] != '%')
 	{
-		write(1, &status.string[status.position], 1);
+		write(1, &status.str[status.pos], 1);
 		status.len++;
-		status.position++;
+		status.pos++;
 	}
-	if (!status.string[status.position])
+	if (!status.str[status.pos])
 		status.stop = 1;
 	return (status);
 }
 
-int			ft_printf(char const *string, ...)
+int	ft_printf(char const *string, ...)
 {
 	va_list		varguments;
 	t_status	status;
-	
-	status.position = 0;
+
+	status.pos = 0;
 	status.len = 0;
 	status.stop = 0;
-	status.string = ft_strdup(string);
+	status.str = ft_strdup(string);
 	va_start(varguments, string);
 	status.args = &varguments;
 	while (!status.stop)
@@ -44,7 +43,7 @@ int			ft_printf(char const *string, ...)
 		if (!status.stop)
 			status = param_detector(status);
 	}
-	free(status.string);
+	free(status.str);
 	va_end(varguments);
 	return (status.len);
 }

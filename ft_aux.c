@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:56:48 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/21 23:03:48 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:58:38 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_status	status_reset(t_status status)
 	return (status);
 }
 
-void ft_space(int i)
+void	ft_space(int i)
 {
 	while (i > 0)
 	{
@@ -43,13 +43,12 @@ t_status	space_or_zero(t_status status)
 	{
 		write (1, " ", 1);
 	}
-	else 
+	else
 	{
 		if (status.zero && !status.dot && !status.minus)
 			write(1, "0", 1);
 		else
 			write (1, " ", 1);
-
 	}
 	status.len++;
 	return (status);
