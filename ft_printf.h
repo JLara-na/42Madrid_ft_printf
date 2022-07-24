@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/24 01:50:56 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:57:51 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_status	ft_writestr(t_status status);
 t_status	status_reset(t_status status);
 t_status	space_or_zero(t_status status);
 char		*zero_at_front(char *str);
-void		ft_space(int i);
+t_status	ft_zero(t_status status);
 
 //LIBFT functions
 

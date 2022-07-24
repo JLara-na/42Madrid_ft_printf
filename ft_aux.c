@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:56:48 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 19:58:38 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/24 22:22:53 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,11 @@ t_status	status_reset(t_status status)
 	return (status);
 }
 
-void	ft_space(int i)
+t_status	ft_zero(t_status status)
 {
-	while (i > 0)
-	{
-		write(1, " ", 1);
-		i--;
-	}
+	write(1, "0", 1);
+	status.len++;
+	return (status);
 }
 
 t_status	space_or_zero(t_status status)

@@ -6,11 +6,26 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:25:53 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/24 02:26:40 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/24 22:22:48 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+t_status ft_precision(t_status status, int count)
+{
+	int newcount;
+	
+	newcount = count;
+	//if (status.hash)
+	//	newcount += 2;
+	if (newcount < status.max)
+	{
+		while(newcount++ != status.max)
+			status = ft_zero(status);
+	}
+	return (status);
+}
 
 int		ft_putnbr_hexbase(unsigned int nb, char *base)
 {
@@ -29,6 +44,8 @@ int		ft_putnbr_hexbase(unsigned int nb, char *base)
 
 t_status	xmin_or_xmay(unsigned int nb, t_status status)
 {
+	int	count;
+
 	if (status.hash && nb != 0)
 	{
 		if (status.format == 'x')
@@ -37,6 +54,8 @@ t_status	xmin_or_xmay(unsigned int nb, t_status status)
 			write(1, "0X", 2);
 		status.len += 2;
 	}
+	count = ft_countnbr_hex(nb);
+	status = ft_precision(status, count);
 	if (status.format == 'x')
 		status.len += ft_putnbr_hexbase(nb, "0123456789abcdef");
 	if (status.format == 'X')
@@ -49,10 +68,14 @@ t_status	format_x(t_status status)
 	unsigned int nb;
 	int		count;
 	int		dif;
-
+	
 	nb = va_arg(*status.args, int);
 	count = ft_countnbr_hex(nb);
 	dif = status.min;
+	if (status.hash)
+		dif -= 2;
+	if (count < status.max && status.dot)
+		count = status.max;
 	if (count < status.min && !status.minus)
 	{
 		while (dif-- != count)
