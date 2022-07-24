@@ -1,68 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_p.c                                         :+:      :+:    :+:   */
+/*   format_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 15:04:45 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/24 01:26:15 by jlara-na         ###   ########.fr       */
+/*   Created: 2022/07/24 01:25:53 by jlara-na          #+#    #+#             */
+/*   Updated: 2022/07/24 02:26:40 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int		ft_putnbr_hex(size_t nb)
+
+int		ft_putnbr_hexbase(unsigned int nb, char *base)
 {
-	char		*base;
 	static int 	count;
-	
+
 	count = 0;
-	base = "0123456789abcdef";
-	if (nb >= 16)
+	if (nb >= (unsigned int)ft_strlen(base))
 	{
-		ft_putnbr_hex(nb / 16);
-		nb = nb % 16;
+		ft_putnbr_hexbase(nb / (unsigned int)ft_strlen(base), base);
+		nb = nb % (unsigned int)ft_strlen(base);
 	}
 	count++;
 	ft_putchar(base[nb]);
 	return (count);
 }
 
-int		ft_countnbr_hex(size_t nb)
+t_status	xmin_or_xmay(unsigned int nb, t_status status)
 {
-	char		*base;
-	static int 	count;
-	
-	count = 0;
-	base = "0123456789abcdef";
-	if (nb >= 16)
+	if (status.hash && nb != 0)
 	{
-		ft_countnbr_hex(nb / 16);
-		nb = nb % 16;
+		if (status.format == 'x')
+			write(1, "0x", 2);
+		if (status.format == 'X')
+			write(1, "0X", 2);
+		status.len += 2;
 	}
-	count++;
-	return (count);
+	if (status.format == 'x')
+		status.len += ft_putnbr_hexbase(nb, "0123456789abcdef");
+	if (status.format == 'X')
+		status.len += ft_putnbr_hexbase(nb, "0123456789ABCDEF");
+	return (status);
 }
 
-t_status	format_p(t_status status)
+t_status	format_x(t_status status)
 {
-	size_t  nb;
-	int		i;
+	unsigned int nb;
 	int		count;
 	int		dif;
 
-	i = 0;
-	nb = (size_t)va_arg(*status.args, void *);
-	count = ft_countnbr_hex(nb) + 2;
+	nb = va_arg(*status.args, int);
+	count = ft_countnbr_hex(nb);
 	dif = status.min;
 	if (count < status.min && !status.minus)
 	{
 		while (dif-- != count)
 			status = space_or_zero(status);
 	}
-	write(1, "0x", 2);
-	status.len += 2;
-	status.len += ft_putnbr_hex(nb);
+	status = xmin_or_xmay(nb, status);
 	if (count < status.min && status.minus)
 	{
 		while (dif-- != count)

@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:58:40 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 20:49:44 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/24 01:37:17 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ static t_status	format_detector(t_status status)
 			status = format_c(status);
 	if (status.format == 's')
 			status = format_s(status);
-	//if (status.format == 'p')
-	//		status = format_p(status);
+	if (status.format == 'p')
+			status = format_p(status);
 	if (status.format == 'd' || status.format == 'i')
 			status = format_int(status);
 	if (status.format == 'u')
 			status = format_u(status);
-/*	if (status.format == 'x' || status.format == 'X')
+	if (status.format == 'x' || status.format == 'X')
 			status = format_x(status);
-	if (status.format == '%')
+/*	if (status.format == '%')
 			status = format_percent(status);
 */
 	return (status);

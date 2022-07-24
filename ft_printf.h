@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 20:51:24 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/24 01:50:56 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		*ft_calloc(size_t count, size_t size);
 void		ft_putchar(char c);
 void		ft_putnbr(int n);
 char		*ft_itoa(long long int n);
+int			ft_countnbr_hex(size_t nb);
 
 t_status	min_max_detector(t_status status);
 #endif

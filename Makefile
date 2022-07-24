@@ -1,5 +1,5 @@
 NAME =				libftprintf.a
-C_FILES = 			format_c.c format_s.c format_int.c format_u.c ft_aux.c ft_printf.c libft.c libftdos.c parameters.c prueba.c
+C_FILES = 			format_c.c format_s.c format_p.c format_int.c format_u.c format_x.c ft_aux.c ft_printf.c libft.c libftdos.c parameters.c
 C_FILES_BONUS =
 O_FILES =			$(C_FILES:.c=.o)
 O_FILES_BONUS =		$(C_FILES_BONUS:.c=.o)

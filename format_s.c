@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:33:38 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/21 19:41:03 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/24 02:22:07 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*str_process(t_status status, char	*mainstr)
 	}
 	if (status.dot && !status.max && !status.maxz)
 		processedstr = ft_strdup("");
-	else if (((unsigned long)status.max < ft_strlen(mainstr) && status.max)
+	else if ((status.max < ft_strlen(mainstr) && status.max)
 		|| status.maxz)
 	{
 		processedstr = ft_calloc(status.max + 1, sizeof(char));
@@ -44,12 +44,12 @@ t_status	format_s(t_status status)
 {
 	char	*arg;
 	int		i;
-	size_t	dif;
+	int		dif;
 
 	arg = str_process(status, va_arg(*status.args, char *));
 	i = 0;
 	dif = status.min;
-	if (ft_strlen(arg) < (unsigned long)status.min && !status.minus)
+	if (ft_strlen(arg) < status.min && !status.minus)
 	{
 		while (dif-- != ft_strlen(arg))
 			status = space_or_zero(status);
@@ -60,7 +60,7 @@ t_status	format_s(t_status status)
 		status.len++;
 		i++;
 	}
-	if (ft_strlen(arg) < (unsigned long)status.min && status.minus)
+	if (ft_strlen(arg) < status.min && status.minus)
 	{
 		while (dif-- != ft_strlen(arg))
 			status = space_or_zero(status);
