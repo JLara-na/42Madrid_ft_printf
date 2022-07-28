@@ -6,11 +6,16 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:50:10 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 00:00:28 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:57:22 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int	ft_strlen(const char *j)
 {
@@ -31,7 +36,7 @@ static void	ft_bzero(void *s, size_t n)
 		((unsigned char *) s)[i++] = '\0';
 }
 
- void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*str;
 	size_t	mul;
@@ -59,22 +64,4 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	return (str);
-}
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t				i;
-	const unsigned char	*str1;
-	const unsigned char	*str2;
-
-	i = 0;
-	str1 = (const unsigned char *) s1;
-	str2 = (const unsigned char *) s2;
-	while (i <= (n - 1) && n != 0 && (str1[i] || str2[i]))
-	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
-	}
-	return (0);
 }

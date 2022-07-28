@@ -1,13 +1,32 @@
 NAME =				libftprintf.a
-C_FILES = 			format_c.c format_s.c format_p.c format_int.c format_u.c format_x.c format_percent.c ft_aux.c ft_printf.c libft.c libftdos.c parameters.c
-C_FILES_BONUS =
+
+C_FILES = 			format_c.c			\
+					format_s.c			\
+					format_p.c			\
+					format_int.c		\
+					format_u.c			\
+					format_x.c			\
+					format_percent.c	\
+					ft_aux.c			\
+					ft_printf.c			\
+					libft.c				\
+					libftdos.c			\
+					parameters.c		\
+
+C_FILES_BONUS =  $(C_FILES)
+
 O_FILES =			$(C_FILES:.c=.o)
+
 O_FILES_BONUS =		$(C_FILES_BONUS:.c=.o)
+
 CC = 				gcc
+
 CFLAGS =			-Wall -Wextra -Werror
+
 RM =				rm -f
 
 all:		$(NAME)
+
 $(NAME):	$(O_FILES)
 	ar -rc $(NAME) $(O_FILES)
 	ranlib $(NAME)

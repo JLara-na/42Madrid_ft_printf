@@ -6,16 +6,17 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:04:45 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/24 21:29:39 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:50:49 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int		ft_putnbr_hex(size_t nb)
+
+int	ft_putnbr_hex(size_t nb)
 {
 	char		*base;
-	static int 	count;
-	
+	static int	count;
+
 	count = 0;
 	base = "0123456789abcdef";
 	if (nb >= 16)
@@ -28,11 +29,11 @@ int		ft_putnbr_hex(size_t nb)
 	return (count);
 }
 
-int		ft_countnbr_hex(size_t nb)
+int	ft_countnbr_hex(size_t nb)
 {
 	char		*base;
-	static int 	count;
-	
+	static int	count;
+
 	count = 0;
 	base = "0123456789abcdef";
 	if (nb >= 16)
@@ -46,7 +47,7 @@ int		ft_countnbr_hex(size_t nb)
 
 t_status	format_p(t_status status)
 {
-	size_t  nb;
+	size_t	nb;
 	int		i;
 	int		count;
 	int		dif;

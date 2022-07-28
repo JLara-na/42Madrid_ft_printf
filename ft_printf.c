@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 16:02:44 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/23 21:28:55 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:53:47 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_status	ft_writestr(t_status status)
 	return (status);
 }
 
-int	ft_printf(char const *string, ...)
+int	ft_printf(const char *string, ...)
 {
 	va_list		varguments;
 	t_status	status;

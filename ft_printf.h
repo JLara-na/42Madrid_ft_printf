@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/24 21:57:51 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:53:26 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_status
 
 //This is the main function, it will start the process to write down the string.
 
-int			ft_printf(char const *, ...);
+int			ft_printf(const char *string, ...);
 
 //Format functions that will print the argumet values based on the status info.
 

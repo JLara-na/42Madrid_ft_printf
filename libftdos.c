@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 19:27:10 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/22 00:44:08 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:56:45 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ int	ft_isalpha(int j)
 int	ft_isdigit(int j)
 {
 	return (j >= '0' && j <= '9');
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
 }
 
 void	ft_putnbr(int n)
