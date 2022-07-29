@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:44:02 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/28 18:53:26 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/29 13:26:32 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,9 @@ t_status	int_str_print(t_status status, char *str);
 t_status	ft_writestr(t_status status);
 t_status	status_reset(t_status status);
 t_status	space_or_zero(t_status status);
-char		*zero_at_front(char *str);
 t_status	ft_zero(t_status status);
+t_status	min_max_detector(t_status status);
+char		*zero_at_front(char *str);
 
 //LIBFT functions
 
@@ -90,5 +91,4 @@ void		ft_putnbr(int n);
 char		*ft_itoa(long long int n);
 int			ft_countnbr_hex(size_t nb);
 
-t_status	min_max_detector(t_status status);
 #endif
