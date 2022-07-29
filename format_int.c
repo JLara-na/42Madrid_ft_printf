@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 18:31:00 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/28 19:58:29 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/29 13:08:25 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ t_status	int_str_print(t_status status, char *str)
 
 	i = 0;
 	dif = status.min;
-	if ((str[0] == '-' || str[0] == ' ' || str[0] == '+') && !status.dot && status.zero)
+	if ((str[0] == '-' || str[0] == ' ' || str[0] == '+')
+		&& !status.dot && status.zero)
 		write(1, &str[0], 1);
 	if (ft_strlen(str) < status.min && !status.minus)
 	{
 		while (dif-- != ft_strlen(str))
 			status = space_or_zero(status);
 	}
-	if ((str[0] == '-' || str[0] == ' ' || str[0] == '+') && (status.dot || !status.zero))
+	if ((str[0] == '-' || str[0] == ' ' || str[0] == '+')
+		&& (status.dot || !status.zero))
 		write(1, &str[0], 1);
 	status = print_only_num(status, str);
 	if (ft_strlen(str) < status.min && status.minus)
@@ -60,7 +62,7 @@ t_status	format_int(t_status status)
 	long long int	unsignednb;
 	char			*str;
 
-	nb = (long long int)va_arg(*status.args, int);
+	nb = va_arg(*status.args, int);
 	unsignednb = nb;
 	if (nb < 0)
 		unsignednb *= -1;

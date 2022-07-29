@@ -6,7 +6,7 @@
 /*   By: jlara-na <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:58:40 by jlara-na          #+#    #+#             */
-/*   Updated: 2022/07/28 19:48:44 by jlara-na         ###   ########.fr       */
+/*   Updated: 2022/07/29 13:08:20 by jlara-na         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,12 @@ static t_status	format_detector(t_status status)
 
 static t_status	flags_detector(t_status status)
 {
-//	if (ft_isdigit(status.str[status.pos]) && !status.dot)
-//			status.min = status.min * 10 + (status.str[status.pos] - 48);
-//	else if (ft_isdigit(status.str[status.pos]) && status.dot)
-//			status.max = status.max * 10 + (status.str[status.pos] - 48);
 	if (ft_isalpha(status.str[status.pos]) || status.str[status.pos] == '%')
 			status.format = status.str[status.pos];
 	else if (status.str[status.pos] == '-')
 			status.minus = 1;
-	else if (status.str[status.pos] == '0' && !ft_isdigit(status.str[status.pos - 1]))
+	else if (status.str[status.pos] == '0'
+		&& !ft_isdigit(status.str[status.pos - 1]))
 			status.zero = 1;
 	else if (status.str[status.pos] == '.')
 			status.dot = 1;
